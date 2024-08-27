@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="/mainApplication/ProfilePage/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Dayneeds shop</h1>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/mainApplication/Productspages/p1.html">Products</a></li>
+            <li><a href="/mainApplication/CartPages/cart.html">Cart</a></li>
+            <li><a href="/mainApplication/ProfilePage/profile.html">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+  <div class="profile-container">
+    <div id="profileContent">
+      <!-- Content displayed when the user is logged in -->
+      <div class="profile-details">
+        <h1>Your Profile</h1>
+
+        <div class="section personal-details">
+          <h2>Personal Details</h2>
+          <div class="details">
+            <p><strong>Name:</strong> <span id="userName">John Doe</span></p>
+            <p><strong>Email:</strong> <span id="userEmail">johndoe@example.com</span></p>
+            <p><strong>Mobile Number:</strong> <span id="userMobile">9876543210</span></p>
+          </div>
+        </div>
+
+        <div class="section address-details">
+          <h2>Address</h2>
+          <div class="details" id="addressDetails">
+            <p><strong>House No:</strong> <span id="houseNo">123</span></p>
+            <p><strong>Street:</strong> <span id="street">Example Street</span></p>
+            <p><strong>Nearby:</strong> <span id="nearby">Near Park</span></p>
+            <p><strong>City/Town:</strong> <span id="city">Metropolis</span></p>
+            <p><strong>District:</strong> <span id="district">Metro District</span></p>
+            <p><strong>Pincode:</strong> <span id="pincode">123456</span></p>
+          </div>
+          <button class="btn" id="updateAddressBtn">Update Address</button>
+        </div>
+
+        <div class="section order-history">
+          <h2>Order History</h2>
+          <div class="details">
+            <ul>
+              <li>Order #001 - Delivered on 15th Aug 2024</li>
+              <li>Order #002 - In Transit - Estimated Delivery: 18th Aug 2024</li>
+              <li>Order #003 - Cancelled</li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="btn logout-btn" id="logoutBtn">Logout</button>
+      </div>
+
+      <!-- Content displayed when the user is not logged in -->
+      <div id="loginPrompt" style="display: none;">
+        <h1>Please Log In</h1>
+        <button class="btn login-btn" id="loginBtn">Login</button>
+      </div>
+    </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Grocery Store</p>
+      <ul>
+          <li><a href="/Documents/termsConditions.html">Terms & Policy</a></li>
+          <li><a href="/Documents/privacyPolicy.html">Privacy Policy</a></li>
+          <li><a href="/Documents/refundPolicy.html">Refund Policy</a></li>
+          <li><a href="/Documents/shippingDeliveryPolicy.html">Shipping and Delivery Policy</a></li>
+          <li><a href="/Documents/cancellationPolicy.html">Cancellation Policy</a></li>
+      </ul>
+  </footer>
+<!-- 
+    Modal for Updating Address -->
+    <!-- <div id="updateAddressModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close">&times;</span>
+        <h2>Update Address</h2>
+        <form id="updateAddressForm">
+          <label for="email">Email:</label>
+          <input type="text" id="emailInput" placeholder="Enter your email" required>
+          <label for="houseNo">House No:</label>
+          <input type="text" id="houseNoInput" placeholder="Enter your house number" required>
+          <label for="street">Street:</label>
+          <input type="text" id="streetInput" placeholder="Enter your street" required>
+          <label for="nearby">Nearby:</label>
+          <input type="text" id="nearbyInput" placeholder="Enter nearby landmark" required>
+          <label for="city">City/Town:</label>
+          <input type="text" id="cityInput" placeholder="Enter your city/town" required>
+          <label for="district">District:</label>
+          <input type="text" id="districtInput" placeholder="Enter your district" required>
+          <label for="state">state:</label>
+          <input type="text" id="stateInput" placeholder="Enter your state" required>
+          <label for="pincode">Pincode:</label>
+          <input type="text" id="pincodeInput" placeholder="Enter your pincode" required>
+          <button type="submit" id="saveaddress" class="btn">Save Address</button>
+        </form>
+      </div>
+    </div>
+  </div> -->
+
+<script>
+  let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+  let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+
+        const Name = document.getElementById('userName');
+        const Email = document.getElementById('userEmail');
+        const Mobile = document.getElementById('userMobile');
+        const House = document.getElementById('houseNo');
+        const Street = document.getElementById('street')
+        const Nearby = document.getElementById('nearby');
+        const City = document.getElementById('city')
+        const District =document.getElementById('district')
+        const Pincode = document.getElementById('pincode')
+        const logoutbtn = document.getElementById('logoutBtn');
+        const updateAddress = document.getElementById('updateAddressBtn');
+        
+  
+
+      
+        let logOut = ()=>{
+          sessionStorage.removeItem("user-creds");
+          sessionStorage.removeItem("user-info")
+          window.location.href = '/index.html'
+        }
+
+        let checkCred = ()=>{
+          if(!sessionStorage.getItem("user-creds"))
+              window.location.href = '/mainApplication/RALpages/login.html'
+
+              else{
+            Name.innerText = `${UserInfo.name}`;
+            Email.innerText = `${UserCreds.email}`;
+            Mobile.innerText = `${UserInfo.mobile}`;
+            Nearby.innerText = `${UserInfo.nearby}`;
+            Street.innerText = `${UserInfo.street}`;
+            House.innerText = `${UserInfo.house}`;
+            City.innerText = `${UserInfo.city}`;
+            Pincode.innerText = `${UserInfo.pincode}`;
+            District.innerText = `${UserInfo.district}`;
+  
+        }
+      }
+    
+        window.addEventListener('load',checkCred);
+        logoutbtn.addEventListener('click',logOut)
+ 
+</script>
+
+</body>
+</html>

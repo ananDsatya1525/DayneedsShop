@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="cart.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dayneeds shop</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/mainApplication/Productspages/p1.html">Products</a></li>
+                <li><a href="/mainApplication/CartPages/cart.html">Cart</a></li>
+                <li><a href="/mainApplication/ProfilePage/profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="cart-main" style="overflow-y: scroll;">
+        <div class="cart-container">
+            <h1>Your Cart</h1>
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Cart items will be populated here -->
+                </tbody>
+            </table>
+            <div class="cart-summary">
+                <h2 id="totalPrice">Total Price: <span id="total-price">0 Rs</span></h2>
+                <button id="checkout">Checkout</button>
+            </div>
+        </div>
+    </main>
+
+    
+    <!-- Modal for Login Reminder -->
+  <div id="loginReminderModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login Required</h2>
+      <p>Please log in to proceed with the checkout.</p>
+      <button class="btn" id="loginRedirectBtn">Login</button>
+    </div>
+  </div>
+
+    <footer>
+        <p>&copy; 2024 Dayneeds</p>
+        <ul>
+            <li><a href="/Documents/termsConditions.html">Terms & Policy</a></li>
+            <li><a href="/Documents/privacyPolicy.html">Privacy Policy</a></li>
+            <li><a href="/Documents/refundPolicy.html">Refund Policy</a></li>
+            <li><a href="/Documents/shippingDeliveryPolicy.html">Shipping and Delivery Policy</a></li>
+            <li><a href="/Documents/cancellationPolicy.html">Cancellation Policy</a></li>
+        </ul>
+    </footer>
+
+  
+    <script src="cart.js"></script>
+</body>
+</html>

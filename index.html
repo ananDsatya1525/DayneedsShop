@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Store</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <header>
+        <h1>Dayneeds Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/mainApplication/Productspages/p1.html">Products</a></li>
+                <li><a href="/mainApplication/CartPages/cart.html">Cart</a></li>
+                <li><a href="/mainApplication/ProfilePage/profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+  
+       <marquee behavior="" direction="" id="ScrollingText"> </marquee>
+    
+    
+    <main>
+        <h2>Products</h2>
+        <div class="filters">
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="all">All</option>
+                <option value="vegetables">Vegetables</option>
+                <option value="fruits">Fruits</option>
+                <option value="groceries">Groceries</option>
+            </select>
+            <label for="search">Search:</label>
+            <input type="text" id="search" placeholder="Search products...">
+        </div>
+        <marquee id="scrollingtext">Top 12 products selling fast 👇 </marquee>
+        <div class="product-list">
+            <!-- Product items will be inserted here dynamically -->
+        </div>
+        <div class="no-products" style="display: none;">Oops! The product is not available.</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Dayneeds</p>
+        <ul>
+            <li><a href="/Documents/termsConditions.html">Terms & Policy</a></li>
+            <li><a href="/Documents/privacyPolicy.html">Privacy Policy</a></li>
+            <li><a href="/Documents/refundPolicy.html">Refund Policy</a></li>
+            <li><a href="/Documents/shippingDeliveryPolicy.html">Shipping and Delivery Policy</a></li>
+            <li><a href="/Documents/cancellationPolicy.html">Cancellation Policy</a></li>
+        </ul>
+    </footer>
+
+    
+    <script src="scripts.js"></script>
+
+    <script>
+        let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+        let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+        const ScrollingText = document.getElementById('ScrollingText');
+        ScrollingText.innerHTML = 'Hi '+ UserInfo.name+ " Welcome to Dayneeds";
+
+       
+    </script>
+</body>
+</html>

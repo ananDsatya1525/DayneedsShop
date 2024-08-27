@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="p1.css">
+    
+</head>
+<body>
+  <header class="header">
+    <h1>Dayneeds Shop</h1>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/mainApplication/Productspages/p1.html">Products</a></li>
+            <li><a href="/mainApplication/CartPages/cart.html">Cart</a></li>
+            <li><a href="/LogsRegsHome/profile.html">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <h2>Categories</h2> 
+            <button id="X">X</button>
+            <ul>
+                <li onclick="filterProducts('all')">All</li>
+                <li onclick="filterProducts('fruits')">Fruits</li>
+                <li onclick="filterProducts('vegetables')">Vegetables</li>
+                <li onclick="filterProducts('cool-drinks')">Cool Drinks</li>
+                <li onclick="filterProducts('grocery')">Grocery</li>
+            </ul>
+            
+        </aside>
+        <main class="main-content" id="mainContent">
+            <header>
+              <div class="close">
+                <button class="toggle-menu" id="toggle" >☰</button>
+              </div>
+                <input type="text" id="searchBar" onkeyup="searchProducts()" placeholder="Search products...">
+            </header>
+           <div class="cat">
+            <ul>
+                <li onclick="filterProducts('all')">All</li>
+                <li onclick="filterProducts('fruits')">Fruits</li>
+                <li onclick="filterProducts('vegetables')">Vegetables</li>
+                <li onclick="filterProducts('cool-drinks')">Cool Drinks</li>
+                <li onclick="filterProducts('grocery')">Grocery</li>
+            </ul>
+           </div>
+            
+            <div class="product-grid" id="productGrid">
+
+                <!-- Product cards will be injected here by JavaScript -->
+            </div>
+            <div class="pagination">
+                <button onclick="prevPage()">Prev</button>
+                <button onclick="nextPage()">Next</button>
+            </div>
+            <div id="noResults" class="no-results" style="display: none;">Oops! Product not found</div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2024 Dayneeds</p>
+        <ul>
+            <li><a href="/Documents/termsConditions.html">Terms & Policy</a></li>
+            <li><a href="/Documents/privacyPolicy.html">Privacy Policy</a></li>
+            <li><a href="/Documents/refundPolicy.html">Refund Policy</a></li>
+            <li><a href="/Documents/shippingDeliveryPolicy.html">Shipping and Delivery Policy</a></li>
+            <li><a href="/Documents/cancellationPolicy.html">Cancellation Policy</a></li>
+        </ul>
+    </footer>
+
+   
+    <script src="p1.js"></script>
+</body>
+</html>
